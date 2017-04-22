@@ -1,0 +1,227 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/matteofigus/nice-json2csv"
+
+    >nice-json2csv (v0.2.2)</a>
+</h1>
+<h4>A simple json2csv converter + Express csv utility</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nice-json2csv">module nice-json2csv</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nice-json2csv.convert">
+            function <span class="apidocSignatureSpan">nice-json2csv.</span>convert
+            <span class="apidocSignatureSpan">(data, headers, suppressHeader)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nice-json2csv.expressDecorator">
+            function <span class="apidocSignatureSpan">nice-json2csv.</span>expressDecorator
+            <span class="apidocSignatureSpan">(req, res, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nice-json2csv.</span>nice_json2csv</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nice-json2csv.nice_json2csv">module nice-json2csv.nice_json2csv</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nice-json2csv.nice_json2csv.convert">
+            function <span class="apidocSignatureSpan">nice-json2csv.nice_json2csv.</span>convert
+            <span class="apidocSignatureSpan">(data, headers, suppressHeader)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nice-json2csv.nice_json2csv.expressDecorator">
+            function <span class="apidocSignatureSpan">nice-json2csv.nice_json2csv.</span>expressDecorator
+            <span class="apidocSignatureSpan">(req, res, next)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nice-json2csv" id="apidoc.module.nice-json2csv">module nice-json2csv</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nice-json2csv.convert" id="apidoc.element.nice-json2csv.convert">
+        function <span class="apidocSignatureSpan">nice-json2csv.</span>convert
+        <span class="apidocSignatureSpan">(data, headers, suppressHeader)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">convert = function (data, headers, suppressHeader){
+  return converter.convert(data, headers, suppressHeader);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Include the library and use the convert function to get a csv string from your json object.
+
+```js
+var json2csv = require(&#x27;nice-json2csv&#x27;);
+var myData = [{ &#x22;first_name&#x22;: &#x22;John&#x22;, &#x22;last_name&#x22;: &#x22;Doe&#x22;}, { &#x22;first_name&#x22;: &#x22
+;Jane&#x22;, &#x22;last_name&#x22;: &#x22;Doe&#x22;}, { &#x22;first_name&#x22;: &#x22;Mick&#x22;}];
+
+// all the json object
+var csvContent = json2csv.<span class="apidocCodeKeywordSpan">convert</span>(myData);
+
+// just the &#x27;first_name&#x27; column
+var justFirstNames = json2csv.convert(myData, [&#x22;first_name&#x22;]);
+
+// without the header row
+var noHeader = json2csv.convert(myData, [&#x22;first_name&#x22;], true);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nice-json2csv.expressDecorator" id="apidoc.element.nice-json2csv.expressDecorator">
+        function <span class="apidocSignatureSpan">nice-json2csv.</span>expressDecorator
+        <span class="apidocSignatureSpan">(req, res, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">expressDecorator = function (req, res, next){
+  res.csv = converter.decorateExpress;
+  next();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nice-json2csv.nice_json2csv" id="apidoc.module.nice-json2csv.nice_json2csv">module nice-json2csv.nice_json2csv</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nice-json2csv.nice_json2csv.convert" id="apidoc.element.nice-json2csv.nice_json2csv.convert">
+        function <span class="apidocSignatureSpan">nice-json2csv.nice_json2csv.</span>convert
+        <span class="apidocSignatureSpan">(data, headers, suppressHeader)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">convert = function (data, headers, suppressHeader){
+  return converter.convert(data, headers, suppressHeader);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Include the library and use the convert function to get a csv string from your json object.
+
+```js
+var json2csv = require(&#x27;nice-json2csv&#x27;);
+var myData = [{ &#x22;first_name&#x22;: &#x22;John&#x22;, &#x22;last_name&#x22;: &#x22;Doe&#x22;}, { &#x22;first_name&#x22;: &#x22
+;Jane&#x22;, &#x22;last_name&#x22;: &#x22;Doe&#x22;}, { &#x22;first_name&#x22;: &#x22;Mick&#x22;}];
+
+// all the json object
+var csvContent = json2csv.<span class="apidocCodeKeywordSpan">convert</span>(myData);
+
+// just the &#x27;first_name&#x27; column
+var justFirstNames = json2csv.convert(myData, [&#x22;first_name&#x22;]);
+
+// without the header row
+var noHeader = json2csv.convert(myData, [&#x22;first_name&#x22;], true);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nice-json2csv.nice_json2csv.expressDecorator" id="apidoc.element.nice-json2csv.nice_json2csv.expressDecorator">
+        function <span class="apidocSignatureSpan">nice-json2csv.nice_json2csv.</span>expressDecorator
+        <span class="apidocSignatureSpan">(req, res, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">expressDecorator = function (req, res, next){
+  res.csv = converter.decorateExpress;
+  next();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
